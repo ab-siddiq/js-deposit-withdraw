@@ -1,0 +1,24 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    padding: 100px;
+}
+.box-style{
+    padding: 50px 20px;
+    margin: 20px 0;
+    border-radius: 10px;
+    box-shadow: 5px 5px 15px gray;
+}
+#status{display: none;}
+.status{
+    margin: 20px 10px;
+    padding: 20px;
+    border-radius: 10px;
+    color: #fff
+}
+.deposit{background-color: goldenrod;}
+.withdraw{background-color: chocolate;}
+.balance{background-color: salmon;}

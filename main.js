@@ -48,6 +48,7 @@
          }
      }
 
+     document.getElementById("withdrawValue").value = "";
      
  })
  function getInputValue(id) {

@@ -12,9 +12,13 @@
 
      const depositNumber = getInputValue("depositValue");
 
-     updateSpanText("currentDeposit", depositNumber);
-     updateSpanText("currentBalance", depositNumber);
-
+     if (depositNumber > 0) {
+        updateSpanText("currentDeposit", depositNumber);
+        updateSpanText("currentBalance", depositNumber);
+     }
+     else {
+         alert('you can\'t add negative/empty amount!');
+     }
      document.getElementById("depositValue").value = "";
 
 
@@ -22,13 +26,29 @@
 
 
  //withdraw listener
-
  const withdrawBtn = document.getElementById("makeWithdraw");
  withdrawBtn.addEventListener('click', function () {
      const withdrawAmountNumber = getInputValue("withdrawValue");
+    //  const balanceAmountNumber = getInputValue("currentBalance");
+     const balanceAmount = document.getElementById('currentBalance').innerText;
+     const balanceAmountNumber = parseFloat(balanceAmount);
+     
+     console.log(balanceAmountNumber);
+     console.log(withdrawAmountNumber);
+     if (withdrawAmountNumber >0  && withdrawAmountNumber <= balanceAmountNumber ) {
+        updateSpanText("currentWithdraw", withdrawAmountNumber);
+        updateSpanText("currentBalance", withdrawAmountNumber * -1);
+     }
+     else {
+         if (withdrawAmountNumber < 0) {
+             alert('put positive amount');
+         }
+         if (withdrawAmountNumber > balanceAmountNumber) {
+             alert('don\'t have enough balance');
+         }
+     }
 
-     updateSpanText("currentWithdraw", withdrawAmountNumber);
-     updateSpanText("currentBalance", withdrawAmountNumber * -1);
+     
  })
  function getInputValue(id) {
      const inputAmount = document.getElementById(id).value;
